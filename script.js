@@ -4,6 +4,7 @@ const secondEl = document.querySelector(".second");
 const timeEL = document.querySelector(".time");
 const dateEL = document.querySelector(".date");
 const toggle = document.querySelector(".toggle");
+const html = document.querySelector("html");
 
 const days = [
   "Monday",
@@ -30,13 +31,12 @@ const months = [
 ];
 
 toggle.addEventListener("click", (e) => {
-  const html = document.querySelector("html");
   if (html.classList.contains("dark")) {
     html.classList.remove("dark");
-    e.target.innerHTML = "Dark🐈‍⬛ ";
+    e.target.innerHTML = '<i class="fas fa-moon"></i>';
   } else {
     html.classList.add("dark");
-    e.target.innerHTML = "Light🔥";
+    e.target.innerHTML = '<i class="fas fa-sun"></i>';
   }
 });
 
@@ -73,15 +73,24 @@ function setTime() {
     360
   )}deg)`;
 
+  if (hoursForClock == 12) {
+    changeBackgroundColor();
+  }
+
   timeEL.innerHTML = `${hoursForClock}:${
     minutes < 10 ? `0${minutes}` : minutes
   } ${ampm}`;
+
   dateEL.innerHTML = `${days[day]}, ${months[month]} <span class="circle"> ${date}</span>`;
 
   //Map a range of numbers to another range of numbers :
   function scale(number, inMin, inMax, outMin, outMax) {
     return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
   }
+}
+
+function changeBackgroundColor() {
+  html.classList.add("dark");
 }
 
 setTime();

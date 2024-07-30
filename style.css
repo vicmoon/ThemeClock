@@ -67,10 +67,7 @@ html {
   transform-origin: bottom center;
   transition: all 0.5 ease-in;
 }
-/* 
-.needle.hour {
-  transform: translate(-50%, -100%) rotate(0deg);
-} */
+
 .needle.minute {
   transform: translate(-50%, -100%) rotate(0deg);
   height: 100px;
