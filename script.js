@@ -30,13 +30,17 @@ const months = [
   "December",
 ];
 
-toggle.addEventListener("click", (e) => {
+toggle.addEventListener("click", () => {
   if (html.classList.contains("dark")) {
     html.classList.remove("dark");
-    e.target.innerHTML = '<i class="fas fa-moon"></i>';
+    toggle.innerHTML = '<i class="fas fa-moon"></i>';
+    toggle.style.backgroundColor = "#03346e"; // revert to original color
+    toggle.style.color = "var(--secondary-color)";
   } else {
     html.classList.add("dark");
-    e.target.innerHTML = '<i class="fas fa-sun"></i>';
+    toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    toggle.style.backgroundColor = "white"; // change to white
+    toggle.style.color = "black"; // ensure text color contrasts with white background
   }
 });
 
